@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .HButton {
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md 
+        hover:bg-lightBrown hover:cursor-pointer hover:shadow-md hover:scale-105
+        transition-all duration-300;
+        
+    }
+
+    .Dropdownbutton{
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md
+        hover:bg-lightBrown hover:cursor-pointer hover:shadow-md hover:scale-105
+        transition-all duration-300;
+
+    }
+    .DropdownbuttonActiv{
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md rounded-b-none
+    bg-lightBrown cursor-pointer shadow-md scale-105 duration-300;
+
+    }
+
+    .Dropdownitem {
+        @apply flex-1 bg-slate-500 h-10 w-full;
+    }
 }
