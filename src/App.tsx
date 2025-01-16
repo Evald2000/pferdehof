@@ -1,6 +1,5 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './Header';
 import Home from './Home';
 import Contact from './Contact';
 
@@ -8,7 +7,6 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Header />
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} /> {/* Add the Contact route */}

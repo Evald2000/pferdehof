@@ -7,23 +7,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Home';
 import Contact from './Contact';
 import Header from './Header';
+import App from './App';
 
-const router = createBrowserRouter([
-  {
-  path: '/',
-  element: <Home></Home>
-  },
-  {
-    path: '/contact',
-  element: <Contact></Contact>
-  },
 
-]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <div className='h-screen bg-background '>
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <App></App>
   </React.StrictMode>
   </div>
 )
