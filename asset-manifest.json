@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/pferdehof/static/css/main.c6ee985b.css",
-    "main.js": "/pferdehof/static/js/main.1a074443.js",
+    "main.js": "/pferdehof/static/js/main.8e4d152c.js",
     "static/js/453.b7fa35a9.chunk.js": "/pferdehof/static/js/453.b7fa35a9.chunk.js",
     "static/media/logo_org.jpg": "/pferdehof/static/media/logo_org.21879f37917066269fb8.jpg",
     "index.html": "/pferdehof/index.html",
     "main.c6ee985b.css.map": "/pferdehof/static/css/main.c6ee985b.css.map",
-    "main.1a074443.js.map": "/pferdehof/static/js/main.1a074443.js.map",
+    "main.8e4d152c.js.map": "/pferdehof/static/js/main.8e4d152c.js.map",
     "453.b7fa35a9.chunk.js.map": "/pferdehof/static/js/453.b7fa35a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6ee985b.css",
-    "static/js/main.1a074443.js"
+    "static/js/main.8e4d152c.js"
   ]
 }
