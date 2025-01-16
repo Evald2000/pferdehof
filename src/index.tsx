@@ -12,11 +12,9 @@ import App from './App';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <div className='h-screen bg-background '>
   <React.StrictMode>
     <App></App>
   </React.StrictMode>
-  </div>
 )
 
 // If you want to start measuring performance in your app, pass a function
