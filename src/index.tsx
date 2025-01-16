@@ -14,9 +14,7 @@ import App from './App';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <div className='h-screen bg-background '>
     <p>Hui</p>
-  <React.StrictMode>
     <App></App>
-  </React.StrictMode>
   </div>
 )
 
