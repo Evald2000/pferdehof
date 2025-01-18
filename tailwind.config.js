@@ -10,7 +10,7 @@ module.exports = {
         "slide-in-down": {
           "0%": {
             visibility: "visible",
-            transform: "translate3d(0, -15%, 0)",
+            transform: "translate3d(0, -10%, 0)",
           },
           "100%": {
             transform: "translate3d(0, 0, 0)",

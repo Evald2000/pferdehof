@@ -8,14 +8,14 @@
     .HButton {
         @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md 
         hover:bg-lightBrown hover:cursor-pointer hover:shadow-md
-        transition-all duration-300;
+        transition-all hover:scale-105 duration-300;
         
     }
 
     .Dropdownbutton{
         @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md
         hover:bg-lightBrown hover:cursor-pointer hover:shadow-md
-        transition-all duration-300;
+        transition-all;
 
     }
     .DropdownbuttonActiv{
