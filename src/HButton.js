@@ -1,6 +1,6 @@
 const HButton = ({ label }) => {
     return (
-        <button  className="HButton">{label}</button>
+        <button className="HButton">{label}</button>
     );
 
 }

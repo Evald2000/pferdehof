@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
-import Header from './Header';
 import App from './App';
 
 

@@ -6,21 +6,17 @@
 
 @layer components {
     .HButton {
-        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md 
-        hover:bg-lightBrown hover:cursor-pointer hover:shadow-md
-        transition-all hover:scale-105 duration-300;
-        
-    }
-
-    .Dropdownbutton{
-        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md
-        hover:bg-lightBrown hover:cursor-pointer hover:shadow-md
-        transition-all;
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md hover:bg-lightBrown hover:cursor-pointer hover:shadow-md transition-all hover:scale-105 duration-300;
 
     }
-    .DropdownbuttonActiv{
-        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md rounded-b-none
-    bg-lightBrown cursor-pointer shadow-md duration-300;
+
+    .Dropdownbutton {
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md hover:bg-lightBrown hover:cursor-pointer hover:shadow-md transition-all;
+
+    }
+
+    .DropdownbuttonActiv {
+        @apply flex items-center justify-center text-white h-9 w-auto px-3 font-title rounded-md rounded-b-none bg-lightBrown cursor-pointer shadow-md duration-300;
 
     }
 

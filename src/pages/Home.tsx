@@ -1,8 +1,8 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import hof from "./assets/Hof-aereal.jpg";
-import pony from "./assets/pony.jpg";
-import hof_panoram from "./assets/hof_panoram.jpg";
+import Footer from "../Footer";
+import Header from "../Header";
+import hof from "../assets/Hof-aereal.jpg";
+import pony from "../assets/pony.jpg";
+import hof_panoram from "../assets/hof_panoram.jpg";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <Header></Header>
       <div className="grid sm:grid-cols-2 gap-4 mt-28 mx-14">
 
-        <div className="min-h-24 rounded-lg shadow-inner bg-orange-500"><img src={hof} alt="Hof" className="w-full h-full object-cover rounded-lg" /></div>
+        <div className="min-h-24 rounded-lg shadow-inner"><img src={hof} alt="Hof" className="w-full h-full object-cover rounded-lg" /></div>
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
           <div className="p-10 text-lg">
             <h1 className="font-bold text-3xl text-lightBrown">Willkommen bei Islandpferde Lechleite</h1>

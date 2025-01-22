@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Contact from './Contact';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Agb from './pages/Agb';
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
         </Routes>
       </Router>
     </div>
