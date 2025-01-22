@@ -7,7 +7,7 @@ const Footer = () => {
 
 
 
-        <footer className="bg-white dark:bg-gray-900 mt-14">
+        <footer className="bg-gray-900 mt-14">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -40,7 +40,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">Rechtliches</h2>
+                            <h2 className="mb-4 text-sm font-semibold text-white">Rechtliches</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="">
                                     <a onClick={() => navigate('/allgemeine-geschaeftsbedingungen')}  className="hover:underline hover:cursor-pointer">Allgemeine Geschäftsbedingungen</a>
