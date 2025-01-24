@@ -7,8 +7,8 @@ import hof_panoram from "../assets/hof_panoram.jpg";
 const Home = () => {
   return (
     <div>
-      <Header></Header>
-      <div className="grid sm:grid-cols-2 gap-4 mt-28 mx-14">
+      
+      <div className="grid sm:grid-cols-2 gap-4 mt-32 mx-14">
 
         <div className="min-h-24 rounded-lg shadow-inner"><img src={hof} alt="Hof" className="w-full h-full object-cover rounded-lg" /></div>
         <div className="min-h-24 rounded-lg shadow-inner bg-background">

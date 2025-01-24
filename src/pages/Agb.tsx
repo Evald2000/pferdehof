@@ -3,8 +3,7 @@ import Header from "../Header";
 const Contact = () => {
     return (
         <div>
-            <Header></Header>
-        <div className="mt-28 mx-28">
+        <div className="mx-28">
            
         <div className="max-w-4xl mx-auto p-6">
     <header className="mb-8">

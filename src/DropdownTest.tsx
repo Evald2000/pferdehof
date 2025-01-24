@@ -24,8 +24,10 @@ const DropdownTest: React.FC<DropdownTestProps> = ({ label }) => {
       {isOpen && (
 
         <ul className='absolute left-0 w-full bg-lightBrown list-none m-0 rounded-b-md shadow-md transition-opacity duration-150 ease-in-out animate-slide-in-down'>
-          <button className='py-3 cursor-pointer border-black w-full hover:scale-105 text-white duration-300  ' onClick={() => handleSelect('option1')}>Veranstaltungen</button>
-          <button className='py-3 cursor-pointer border-black w-full hover:scale-105 text-white duration-300  ' onClick={() => handleSelect('option1')}>Termine</button>
+          <button className='py-3 cursor-pointer border-black w-full hover:scale-105 
+          text-white duration-300  ' onClick={() => handleSelect('option1')}>Veranstaltungen</button>
+          <button className='py-3 cursor-pointer border-black w-full hover:scale-105 
+          text-white duration-300  ' onClick={() => handleSelect('option1')}>Termine</button>
 
         </ul>
       )}
