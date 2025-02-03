@@ -8,7 +8,7 @@ function Header() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="fixed top-0 left-0 right-0 h-20 flex items-center bg-header shadow-md px-14">
+        <div className="fixed top-0 left-0 right-0 h-16 flex items-center bg-header shadow-md px-14">
             <img src={logo} alt="Logo" className="h-16" /> {/* Add the logo image */}
             <div className="flex-grow"></div> {/* Spacer to push buttons to the right */}
             <div className="flex space-x-10">
