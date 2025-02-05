@@ -10,17 +10,17 @@ const TableRow = ({ text1 , text2 , text3 }: TableRowProps) => {
     return (
         <tr>
            <td className="p-4 border-b border-white">
-          <p className="block font-sans text-base antialiased font-normal leading-normal text-blue-gray-900">
+          <p className="block font-sans text-base antialiased font-bold leading-normal text-blue-gray-900">
             {text1}
           </p>
         </td>
         <td className="p-4 border-b border-white">
-        <p className="block font-sans text-base antialiased font-normal leading-normal text-blue-gray-900">
+        <p className="block font-sans text-base antialiased font-bold leading-normal text-blue-gray-900 ">
           {text2}
         </p>
       </td>
       <td className="p-4 border-b border-white">
-      <p className="block font-sans text-base antialiased font-normal leading-normal text-blue-gray-900">
+      <p className="block font-sans text-base antialiased font-bold leading-normal text-blue-gray-900">
         {text3}
       </p>
     </td>

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Termine from './pages/Termine';
 import PriceList from './pages/PriceList';
 import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   const ScrollToTop = () => {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/price" element={<PriceList />} />
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
         </Routes>
+        <Footer></Footer>
       </Router>
     </div>
   );

@@ -22,7 +22,7 @@ const Home = () => {
         </div>
       </div>
       <div className="m-14">
-<img className="rounded-md" src={hof_panoram}/>
+<img className="rounded-md" src={hof_panoram}></img>
 </div>
       <div className="grid sm:grid-cols-2 gap-4 mt-14 mx-14">
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
