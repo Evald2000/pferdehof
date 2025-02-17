@@ -17,7 +17,7 @@ const Home = () => {
         </div>
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
           <div className="p-10 text-lg">
-            <h1 className="font-bold text-3xl text-lightBrown">
+            <h1 className="font-bold text-2xl text-lightBrown">
               Willkommen bei Islandpferde Lechleite
             </h1>
             <p>
@@ -41,7 +41,7 @@ const Home = () => {
       <div className="grid sm:grid-cols-2 gap-4 mt-14 mx-14">
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
           <div className="p-10 text-lg">
-            <h1 className="font-bold text-3xl text-lightBrown">
+            <h1 className="font-bold text-2xl text-lightBrown">
               Über uns und unsere Philosophie
             </h1>
             <p>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface DropdownTestProps {
   label: string;
@@ -7,7 +8,7 @@ interface DropdownTestProps {
 const DropdownTest: React.FC<DropdownTestProps> = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
-
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -27,7 +28,7 @@ const DropdownTest: React.FC<DropdownTestProps> = ({ label }) => {
           <button className='py-3 cursor-pointer border-black w-full hover:scale-105 
           text-white duration-300  ' onClick={() => handleSelect('option1')}>Veranstaltungen</button>
           <button className='py-3 cursor-pointer border-black w-full hover:scale-105 
-          text-white duration-300  ' onClick={() => handleSelect('option1')}>Termine</button>
+          text-white duration-300  ' onClick={() => navigate('/termine')}>Termine</button>
 
         </ul>
       )}

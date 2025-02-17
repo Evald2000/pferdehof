@@ -44,31 +44,26 @@ const PriceList = () => {
   ];
   const rows3 = [
     <TableRow
-    text1="Zusatzleistungen (siehe Details Unten): "
-    text2="pro 10 Minuten"
-    text3="10€"
-  />,
+      text1="Zusatzleistungen (siehe Details Unten): "
+      text2="pro 10 Minuten"
+      text3="10€"
+    />,
+    <TableRow text1="Pferd verladen: " text2="je angef. Stunde" text3="100€" />,
     <TableRow
-    text1="Pferd verladen: "
-    text2="je angef. Stunde"
-    text3="100€"
-  />,
-    <TableRow
-    text1="Hängerplatz(nicht überdacht): "
-    text2="pro Monat"
-    text3="30€"
-  />,
-  
+      text1="Hängerplatz(nicht überdacht): "
+      text2="pro Monat"
+      text3="30€"
+    />,
   ];
 
   return (
     <div className="mt-24">
-      <h1 className=" mx-14 text-6xl text-header font-bold">
+      <h1 className=" mx-14 mb-4 text-6xl text-header font-bold">
         Preise {currentYear}
       </h1>
 
       <div className="grid grid-cols-10 gap-4">
-        <div className="col-span-7 mt-4 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
+        <div className="col-span-7 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
           <table className="w-full text-left table-auto min-w-max">
             <thead>
               <tr>
@@ -90,14 +85,14 @@ const PriceList = () => {
             <tbody>{rows.map((row) => row)}</tbody>
           </table>
         </div>
-        <div className="col-span-3 mt-4 mr-1">
+        <div className="col-span-3 mr-1">
           <img
-            className="rounded-md"
+            className="rounded-md shadow-md"
             alt="Leute auf Pferde im Wasser"
             src={erwachsene}
           ></img>
           <img
-            className="rounded-md mt-4 h-[18rem] w-full object-cover"
+            className="rounded-md mt-4 h-[18rem] w-full object-cover shadow-md"
             alt="Kinder auf Pferde"
             src={kinder}
           ></img>
@@ -127,20 +122,20 @@ const PriceList = () => {
         </div>
         <div className="col-span-3 mt-4 mr-1">
           <img
-            className="rounded-md h-60 w-full object-cover"
+            className="rounded-md h-60 w-full object-cover shadow-md"
             alt="Leute auf Pferde im Wasser"
             src={hof}
           ></img>
           <img
-            className="rounded-md mt-4 h-60 w-full object-cover"
+            className="rounded-md mt-4 h-60 w-full object-cover shadow-md"
             alt="Kinder auf Pferde"
             src={pferde_essen}
           ></img>
         </div>
       </div>
 
-      <div className="grid grid-cols-10 gap-4">
-        <div className="col-span-7 mt-4 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
+      <div className="mt-14 grid grid-cols-10 gap-4">
+        <div className="col-span-7 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
           <table className="w-full text-left table-auto min-w-max">
             <thead>
               <tr>
@@ -160,20 +155,19 @@ const PriceList = () => {
             <tbody>{rows3.map((row) => row)}</tbody>
           </table>
         </div>
-        <div className="col-span-3 mt-4 mr-1">
+        <div className=" col-span-3 mr-1">
           <img
-            className="rounded-md h-60 w-full object-cover object-top"
-            alt="Leute auf Pferde im Wasser"
+            className="rounded-md h-52 w-full object-cover object-top shadow-md"
+            alt="Pferd liegt auf der Wiese"
             src={pferd_liegt}
           ></img>
         </div>
-        
       </div>
       <p className="mx-14 mt-10 mb-4 text-gray-500">
-    Zur Zusatzleistungen zählen: Medikamentengabe, Vorstellen beim Tierarzt, Ekzempflege, etc., Verbringen/Holen Weide, Zusatzfutter etc.
-  </p>
+        Zur Zusatzleistungen zählen: Medikamentengabe, Vorstellen beim Tierarzt,
+        Ekzempflege, etc., Verbringen/Holen Weide, Zusatzfutter etc.
+      </p>
     </div>
-   
   );
 };
 
