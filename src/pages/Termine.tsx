@@ -116,7 +116,7 @@ const Termine = () => {
       {/* Hauptbereich mit den Boxen */}
       <main className="flex-1 p-6 order-2 bg-white">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
           {boxesData.map((box, idx) => (
             <div
               key={idx}
@@ -145,7 +145,7 @@ const Termine = () => {
       {/* Hauptbereich mit den Boxen */}
       <main className="flex-1 p-6 order-2">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {boxesData2.map((box, idx) => (
             <div
               key={idx}
@@ -167,14 +167,14 @@ const Termine = () => {
       {/* Linke Sidebar */}
       <aside className="order-1 w-20 bg-blue-200 rounded-r-lg border-r flex items-center justify-center">
         <div className="transform -rotate-90 text-header font-bold tracking-widest">
-          VERANSTALTUNGEN
+          EVENTS
         </div>
       </aside>
 
       {/* Hauptbereich mit den Boxen */}
       <main className="flex-1 p-6 order-2">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {boxesData3.map((box, idx) => (
             <div
               key={idx}
