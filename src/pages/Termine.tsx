@@ -40,6 +40,68 @@ const Termine = () => {
     // ... weitere Boxen möglich
   ];
 
+
+    const boxesData2 = [
+      {
+        title: "Dressur",
+        items: [
+          "10 Februar",
+          "17 Februar",
+        ],
+      },
+      {
+        title: "Lange & Bodenarbeit",
+        items: [
+          "20 Januar",
+          "21 September",
+        ],
+      },
+      {
+        title: "Tölttage",
+        items: [
+          "8 Juni",
+          "8 September",
+          "10 November"
+        ],
+      },
+      {
+        title: "Galopptage",
+        items: [
+          "30 Mai",
+          "24 November"
+        ],
+      },
+      // ... weitere Boxen möglich
+    ];
+
+    const boxesData3 = [
+      {
+        title: "Qualitag",
+        items: [
+          "11 Mai",
+        ],
+      },
+      {
+        title: "Tag der offenen Tür",
+        items: [
+          "21 Juli",
+        ],
+      },
+      {
+        title: "Vernissage",
+        items: [
+          "18 Oktober"
+        ],
+      },
+      {
+        title: "Weihnachtsfeier",
+        items: [
+          "8 Dezember",
+        ],
+      },
+      // ... weitere Boxen möglich
+    ];
+
   return (
     // flex + items-stretch = beide Spalten (Main + Sidebar) sind gleich hoch
     <div className=' mt-24 mr-7'>
@@ -54,14 +116,14 @@ const Termine = () => {
       {/* Hauptbereich mit den Boxen */}
       <main className="flex-1 p-6 order-2 bg-white">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
           {boxesData.map((box, idx) => (
             <div
               key={idx}
               className="bg-background p-4 shadow-sm rounded border flex flex-col"
             >
-              <h2 className="text-lg font-semibold mb-2">{box.title}</h2>
-              <ul className="text-sm space-y-1">
+              <h2 className="text-lg font-semibold mb-2 text-center">{box.title}</h2>
+              <ul className="text-sm space-y-1 text-center">
                 {box.items.map((item, iidx) => (
                   <li key={iidx}>{item}</li>
                 ))}
@@ -84,10 +146,39 @@ const Termine = () => {
       <main className="flex-1 p-6 order-2">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {boxesData.map((box, idx) => (
+          {boxesData2.map((box, idx) => (
             <div
               key={idx}
               className="bg-purple-200 p-4 shadow-sm rounded border flex flex-col"
+            >
+              <h2 className="text-lg font-semibold mb-2">{box.title}</h2>
+              <ul className="text-sm space-y-1">
+                {box.items.map((item, iidx) => (
+                  <li key={iidx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
+
+    <div className="flex items-stretc mt-14">
+      {/* Linke Sidebar */}
+      <aside className="order-1 w-20 bg-blue-200 rounded-r-lg border-r flex items-center justify-center">
+        <div className="transform -rotate-90 text-header font-bold tracking-widest">
+          VERANSTALTUNGEN
+        </div>
+      </aside>
+
+      {/* Hauptbereich mit den Boxen */}
+      <main className="flex-1 p-6 order-2">
+        {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {boxesData3.map((box, idx) => (
+            <div
+              key={idx}
+              className="bg-blue-200 p-4 shadow-sm rounded border flex flex-col"
             >
               <h2 className="text-lg font-semibold mb-2">{box.title}</h2>
               <ul className="text-sm space-y-1">
