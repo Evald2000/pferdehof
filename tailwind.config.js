@@ -3,6 +3,7 @@ module.exports = {
   mode: 'jit',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -30,12 +31,16 @@ module.exports = {
         header: '#5a4131',
         primary: '#a36314',
         lightBrown: '#422714',
+        special: '#9684A1',
+        events: '#4CB944'
       },
       fontFamily: {
         title: ["Inter", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+  ],
 }
 

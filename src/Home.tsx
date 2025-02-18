@@ -16,8 +16,8 @@ const Home = () => {
             <h1 className="font-bold text-3xl text-lightBrown">Willkommen bei Islandpferde Lechleite</h1>
             <p>Unser Pferdehof an der schönen Lechleite liegt zwischen Friedberg und Augsburg. Wir sind spezialisiert auf Islandpferde – das sind nicht nur wunderschöne Tiere – sie eignen sich auch wunderbar als Schulpferd für Kinder und Erwachsene und begeistern sowohl Anfänger als auch anspruchsvolle Reitprofis.
               Individuellen Reitunterricht und Kurse bieten wir nicht nur für Kinder und Jugendliche an, sondern auch individuell zugeschnitten für Erwachsene. Egal, ob erfahrener Reiter, Anfänger oder Wiedereinsteiger.
-              Unsere Events, Seminare und Lehrgänge rund ums Pferd finden Sie in unserem Jahresprogramm
-            </p>
+              Unsere Events, Seminare und Lehrgänge rund ums Pferd finden Sie in unserem 
+            </p><a href="https://example.com/">Jahresprog</a>
           </div>
         </div>
       </div>

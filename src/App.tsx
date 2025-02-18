@@ -2,11 +2,12 @@ import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-d
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Agb from './pages/Agb';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Termine from './pages/Termine';
 import PriceList from './pages/PriceList';
 import Header from './Header';
 import Footer from './Footer';
+import HeaderMobile from './HeaderMobile';
 
 function App() {
   const ScrollToTop = () => {
@@ -18,16 +19,25 @@ function App() {
   
     return null;
   };
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
   return (
     <div>
       <Router>
-        <Header></Header>
+       {isMobile ? <HeaderMobile></HeaderMobile> :  <Header></Header>}
         <ScrollToTop></ScrollToTop>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/termine" element={<Termine />} />
+          <Route path="/programm" element={<Termine />} />
           <Route path="/price" element={<PriceList />} />
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
         </Routes>

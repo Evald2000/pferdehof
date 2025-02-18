@@ -37,6 +37,7 @@ const Termine = () => {
         "Herbstkurs: 01.09 - 15.12",
       ],
     },
+
     // ... weitere Boxen möglich
   ];
 

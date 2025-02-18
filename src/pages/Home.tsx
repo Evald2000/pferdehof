@@ -3,11 +3,15 @@ import Header from "../Header";
 import hof from "../assets/Hof-aereal.jpg";
 import pony from "../assets/pony.jpg";
 import hof_panoram from "../assets/hof_panoram.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+
+      const navigate = useNavigate();
+
   return (
     <div>
-      <div className="grid sm:grid-cols-2 gap-4 mt-32 mx-14">
+      <div className="grid sm:grid-cols-2 gap-4 mt-32 mx-14 bg-background">
         <div className="min-h-24 rounded-lg shadow-inner">
           <img
             src={hof}
@@ -30,7 +34,7 @@ const Home = () => {
               Jugendliche an, sondern auch individuell zugeschnitten für
               Erwachsene. Egal, ob erfahrener Reiter, Anfänger oder
               Wiedereinsteiger. Unsere Events, Seminare und Lehrgänge rund ums
-              Pferd finden Sie in unserem Jahresprogramm
+              Pferd finden Sie in unserem <a className="text-blue-600 hover:cursor-pointer" onClick={() => navigate('/programm')}>Jahresprogramm</a>
             </p>
           </div>
         </div>
