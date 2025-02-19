@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 gap-4 mt-32 mx-14 bg-background">
-        <div className="min-h-24 rounded-lg shadow-inner">
+      <div className="grid sm:grid-cols-2 gap-4 lg:mt-32 sm:mt-20 lg:mx-14 sm:mx-4 bg-background">
+        <div className="min-h-24 rounded-lg shadow-inner ">
           <img
             src={hof}
             alt="Hof"
