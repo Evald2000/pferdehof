@@ -57,14 +57,14 @@ const PriceList = () => {
   ];
 
   return (
-    <div className="mt-24">
-      <h1 className=" mx-14 mb-4 text-6xl text-header font-bold">
+    <div className="mt-16 md:mt-24 md:mx-14">
+      <h1 className=" mx-4 mb-4 md:mb-10 text-6xl text-header font-bold">
         Preise {currentYear}
       </h1>
 
-      <div className="grid grid-cols-10 gap-4">
-        <div className="col-span-7 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
-          <table className="w-full text-left table-auto min-w-max">
+      <div className="grid grid-cols-10 gap-4 py-0 md:mb-14">
+        <div className="col-span-10 md:col-span-7 mx-4 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border overflow-x-auto">
+          <table className="text-left h-full table-auto">
             <thead>
               <tr>
                 <th className="p-4 border-b border-white bg-blue-gray-50">
@@ -85,23 +85,23 @@ const PriceList = () => {
             <tbody>{rows.map((row) => row)}</tbody>
           </table>
         </div>
-        <div className="col-span-3 mr-1">
+        <div className="col-span-3 mr-1 grid-rows-2">
           <img
-            className="rounded-md shadow-md"
+            className="rounded-md w-0 h-0 md:h-auto md:w-full md:mb-4"
             alt="Leute auf Pferde im Wasser"
             src={erwachsene}
           ></img>
           <img
-            className="rounded-md mt-4 h-[18rem] w-full object-cover shadow-md"
+            className="rounded-md w-0 h-0 md:h-[18rem] md:w-full object-cover shadow-md"
             alt="Kinder auf Pferde"
             src={kinder}
           ></img>
         </div>
       </div>
 
-      <div className="grid grid-cols-10 gap-4 mt-14">
-        <div className="col-span-7 mt-4 ml-14 flex flex-col h-min text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
-          <table className="w-full text-left table-auto min-w-max">
+      <div className="grid grid-cols-10 gap-4 mt-4">
+        <div className="col-span-10 md:col-span-7 mx-4 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border overflow-x-auto">
+          <table className="w-full h-full text-left table-auto">
             <thead>
               <tr>
                 <th className="p-4 border-b border-white bg-blue-gray-50">
@@ -120,23 +120,23 @@ const PriceList = () => {
             <tbody>{rows2.map((row) => row)}</tbody>
           </table>
         </div>
-        <div className="col-span-3 mt-4 mr-1">
+        <div className="col-span-3 mr-1">
           <img
-            className="rounded-md h-60 w-full object-cover shadow-md"
+            className="rounded-md w-0 h-0 md:h-60  md:w-full object-cover shadow-md"
             alt="Leute auf Pferde im Wasser"
             src={hof}
           ></img>
           <img
-            className="rounded-md mt-4 h-60 w-full object-cover shadow-md"
+            className="rounded-md mt-6  w-0 h-0 md:h-60 md:w-full object-cover shadow-md"
             alt="Kinder auf Pferde"
             src={pferde_essen}
           ></img>
         </div>
       </div>
 
-      <div className="mt-14 grid grid-cols-10 gap-4">
-        <div className="col-span-7 ml-14 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border">
-          <table className="w-full text-left table-auto min-w-max">
+      <div className=" grid grid-cols-10 gap-4">
+        <div className="col-span-10 md:col-span-7 mx-4 flex flex-col h-full text-gray-700 bg-background shadow-md rounded-xl bg-clip-border overflow-x-auto">
+          <table className="w-full h-full text-left table-auto">
             <thead>
               <tr>
                 <th className="p-4 border-b border-white bg-blue-gray-50">
@@ -157,13 +157,13 @@ const PriceList = () => {
         </div>
         <div className=" col-span-3 mr-1">
           <img
-            className="rounded-md h-52 w-full object-cover object-top shadow-md"
+            className="rounded-md  w-0 h-0 md:h-52 md:w-full object-cover object-top shadow-md"
             alt="Pferd liegt auf der Wiese"
             src={pferd_liegt}
           ></img>
         </div>
       </div>
-      <p className="mx-14 mt-10 mb-4 text-gray-500">
+      <p className="mx-4 mt-4 mb-4 text-gray-500">
         Zur Zusatzleistungen zählen: Medikamentengabe, Vorstellen beim Tierarzt,
         Ekzempflege, etc., Verbringen/Holen Weide, Zusatzfutter etc.
       </p>
