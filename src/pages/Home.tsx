@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="grid sm:grid-cols-2 gap-4 lg:mt-32 sm:mt-20 lg:mx-14 sm:mx-4 bg-background">
+      <div className="grid sm:grid-cols-2 gap-4 mt-20 mx-4 lg:mt-32  lg:mx-14">
         <div className="min-h-24 rounded-lg shadow-inner ">
           <img
             src={hof}
@@ -20,7 +20,7 @@ const Home = () => {
           />
         </div>
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
-          <div className="p-10 text-lg">
+          <div className="p-4 md:p-8 text-lg">
             <h1 className="font-bold text-2xl text-lightBrown">
               Willkommen bei Islandpferde Lechleite
             </h1>
@@ -40,11 +40,11 @@ const Home = () => {
         </div>
       </div>
       <div className="m-14">
-        <img className="rounded-md" src={hof_panoram}></img>
+        <img className="rounded-md h-0 md:h-full invisible md:visible" src={hof_panoram}></img>
       </div>
-      <div className="grid sm:grid-cols-2 gap-4 mt-14 mx-14">
+      <div className="grid sm:grid-cols-2 gap-4 mt-[-5rem] mx-4 md:mt-14  md:mx-14">
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
-          <div className="p-10 text-lg">
+          <div className="p-4 md:p-8 text-lg">
             <h1 className="font-bold text-2xl text-lightBrown">
               Über uns und unsere Philosophie
             </h1>
