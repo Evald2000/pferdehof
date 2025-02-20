@@ -2,7 +2,7 @@ import TableRow from "../components/TableRow";
 import Header from "../Header";
 import erwachsene from "../assets/erwachsene.jpg";
 import kinder from "../assets/kinder.jpg";
-import hof from "../assets/Hof-aereal.jpg";
+import hof from "../assets/derHof.jpg";
 import pferde_essen from "../assets/pferde_essen.jpg";
 import pferd_liegt from "../assets/pferd_liegt.jpg";
 const PriceList = () => {

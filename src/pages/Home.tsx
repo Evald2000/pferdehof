@@ -1,17 +1,21 @@
 import Footer from "../Footer";
 import Header from "../Header";
-import hof from "../assets/Hof-aereal.jpg";
+import hof from "../assets/derHof.jpg";
 import pony from "../assets/pony.jpg";
 import hof_panoram from "../assets/hof_panoram.jpg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
 
-      const navigate = useNavigate();
+  var currentYear = new Date().getFullYear();
 
   return (
-    <div>
-      <div className="grid sm:grid-cols-2 gap-4 mt-20 mx-4 lg:mt-32  lg:mx-14">
+    <div className="mt-20 lg:mt-28">
+      <h1 className="font-bold text-lg mx-4 md:text-5xl text-center text-lightBrown mb-4 md:mb-10">
+        Willkommen bei Islandpferde Lechleite
+      </h1>
+      <div className="grid sm:grid-cols-2 gap-4  mx-4   lg:mx-14">
         <div className="min-h-24 rounded-lg shadow-inner ">
           <img
             src={hof}
@@ -20,10 +24,7 @@ const Home = () => {
           />
         </div>
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
-          <div className="p-4 md:p-8 text-lg">
-            <h1 className="font-bold text-2xl text-lightBrown">
-              Willkommen bei Islandpferde Lechleite
-            </h1>
+          <div className=" p-2 md:p-8 md:text-lg">
             <p>
               Unser Pferdehof an der schönen Lechleite liegt zwischen Friedberg
               und Augsburg. Wir sind spezialisiert auf Islandpferde – das sind
@@ -34,18 +35,27 @@ const Home = () => {
               Jugendliche an, sondern auch individuell zugeschnitten für
               Erwachsene. Egal, ob erfahrener Reiter, Anfänger oder
               Wiedereinsteiger. Unsere Events, Seminare und Lehrgänge rund ums
-              Pferd finden Sie in unserem <a className="text-blue-600 hover:cursor-pointer" onClick={() => navigate('/programm')}>Jahresprogramm</a>
+              Pferd finden Sie in unserem{" "}
+              <a
+                className="text-orange-600 hover:cursor-pointer"
+                onClick={() => navigate("/programm")}
+              >
+                Jahresprogramm
+              </a>
             </p>
           </div>
         </div>
       </div>
       <div className="m-14">
-        <img className="rounded-md h-0 md:h-full invisible md:visible" src={hof_panoram}></img>
+        <img
+          className="rounded-md h-0 md:h-full invisible md:visible"
+          src={hof_panoram}
+        ></img>
       </div>
       <div className="grid sm:grid-cols-2 gap-4 mt-[-5rem] mx-4 md:mt-14  md:mx-14">
         <div className="min-h-24 rounded-lg shadow-inner bg-background">
-          <div className="p-4 md:p-8 text-lg">
-            <h1 className="font-bold text-2xl text-lightBrown">
+          <div className="p-2 md:p-8 md:text-lg">
+            <h1 className="font-bold te md:text-2xl text-lightBrown">
               Über uns und unsere Philosophie
             </h1>
             <p>
@@ -70,7 +80,13 @@ const Home = () => {
               oder Pferd. Den kompletten Überblick über das laufende Jahr
               erhalten Sie hier:
             </p>
-            <a href="https://example.com/">Jahresprogramm</a>
+            <button
+              className="text-white mt-4 mb-4
+               hover:cursor-pointer bg-lightBrown p-3 rounded-lg"
+              onClick={() => navigate("/programm")}
+            >
+              Jahresprogramm {currentYear}
+            </button>
             <p></p>
             <a href="https://example.com/">Gebrauchsanweisung Lechleite</a>
           </div>
