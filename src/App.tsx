@@ -9,6 +9,7 @@ import Header from './Header';
 import Footer from './Footer';
 import HeaderMobile from './HeaderMobile';
 import Impressum from './pages/Impressum';
+import Datenschutz from './pages/Datenschutz';
 
 function App() {
   const ScrollToTop = () => {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/price" element={<PriceList />} />
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
         </Routes>
         <Footer></Footer>
       </Router>

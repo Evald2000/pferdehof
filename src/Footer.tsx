@@ -49,7 +49,7 @@ const Footer = () => {
                                     <a onClick={() => navigate('/impressum')} className="hover:underline">Impressum</a>
                                 </li>
                                 <li className="">
-                                    <a href='test.com' className="hover:underline">Datenschutz</a>
+                                    <a onClick={() => navigate('/datenschutz')} className="hover:underline">Datenschutz</a>
                                 </li>
 
                             </ul>
