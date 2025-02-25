@@ -1,6 +1,6 @@
 import Header from "../Header";
 
-const Contact = () => {
+const Agb = () => {
     return (
         <div>
         <div className="mt-14 md:mx-28">
@@ -92,4 +92,4 @@ const Contact = () => {
 
 }
 
-export default Contact;
+export default Agb;

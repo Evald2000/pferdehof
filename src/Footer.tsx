@@ -46,7 +46,7 @@ const Footer = () => {
                                     <a onClick={() => navigate('/allgemeine-geschaeftsbedingungen')}  className="hover:underline hover:cursor-pointer">Allgemeine Geschäftsbedingungen</a>
                                 </li>
                                 <li className="">
-                                    <a href='test.com' className="hover:underline">Impressum</a>
+                                    <a onClick={() => navigate('/impressum')} className="hover:underline">Impressum</a>
                                 </li>
                                 <li className="">
                                     <a href='test.com' className="hover:underline">Datenschutz</a>

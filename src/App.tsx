@@ -8,6 +8,7 @@ import PriceList from './pages/PriceList';
 import Header from './Header';
 import Footer from './Footer';
 import HeaderMobile from './HeaderMobile';
+import Impressum from './pages/Impressum';
 
 function App() {
   const ScrollToTop = () => {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/programm" element={<Termine />} />
           <Route path="/price" element={<PriceList />} />
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
+          <Route path="/impressum" element={<Impressum />} />
         </Routes>
         <Footer></Footer>
       </Router>
