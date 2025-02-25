@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from './assets/logo_dark.png';
+import logo from './assets/logo.png';
 import DropdownTest from './DropdownTest';
 import DropdownButton from './components/DropdownButton';
 
@@ -16,8 +16,8 @@ function Header() {
                 <button className='HButton' onClick={() => navigate('/')}>Home</button>
                 <button className='HButton' onClick={() => navigate('/programm')}>Programm {currentYear}</button>
                 <button className='HButton' onClick={() => navigate('/price')}>Preise</button>
-                <button className="HButton" onClick={() => navigate('/contact')}>Kontakt</button>
-                <button className='HButton' onClick={() => navigate('/')}>Über uns</button>
+                {/* <button className="HButton" onClick={() => navigate('/contact')}>Kontakt</button> */}
+                <button className='HButton' onClick={() => navigate('/ueberuns')}>Über uns</button>
             </div>
         </div>
     );

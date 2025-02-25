@@ -10,6 +10,7 @@ import Footer from './Footer';
 import HeaderMobile from './HeaderMobile';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
+import UeberUns from './pages/ueberUns';
 
 function App() {
   const ScrollToTop = () => {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          <Route path="/ueberuns" element={<UeberUns />} />
         </Routes>
         <Footer></Footer>
       </Router>

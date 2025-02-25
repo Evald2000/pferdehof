@@ -88,7 +88,7 @@ const Home = () => {
               Jahresprogramm {currentYear}
             </button>
             <p></p>
-            <a href="https://example.com/">Gebrauchsanweisung Lechleite</a>
+            
           </div>
         </div>
         <div className="min-h-24 rounded-lg shadow-inner bg-orange-500">

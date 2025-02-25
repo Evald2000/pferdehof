@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from './assets/logo_dark.png';
+import logo from './assets/logo.png';
 import DropdownTest from './DropdownTest';
 import DropdownButton from './components/DropdownButton';
 import { Modal} from 'flowbite'
@@ -18,6 +18,7 @@ function HeaderMobile() {
         navigate(route);
     };
 
+
     return (
         <div className="fixed top-0 left-0 right-0 h-16 flex items-center bg-header shadow-md px-4 z-[1] ">
             <img src={logo} alt="Logo" className="h-16 hover:cursor-pointer" onClick={() => navigate('/')} /> {/* Add the logo image */}
@@ -30,8 +31,8 @@ function HeaderMobile() {
             <button className='HButton text-black bg-inherit' onClick={() => handleButtonClick({route: '/'})}>Home</button>
             <button className='HButton text-black' onClick={() => handleButtonClick({ route: "/programm" })}>Programm {currentYear}</button>
                 <button className='HButton text-black' onClick={() => handleButtonClick({ route: '/price'})}>Preise</button>
-                <button className="HButton text-black" onClick={() => handleButtonClick({route: '/contact'})}>Kontakt</button>
-                <button className='HButton text-black' onClick={() => handleButtonClick({route: '/'})}>Über uns</button>
+                {/* <button className="HButton text-black" onClick={() => handleButtonClick({route: '/contact'})}>Kontakt</button> */}
+                <button className='HButton text-black' onClick={() => handleButtonClick({route: '/ueberuns'})}>Über uns</button>
             </div>}
 
 
