@@ -11,6 +11,7 @@ import HeaderMobile from './HeaderMobile';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import UnserHof from './pages/unserHof';
+import Team from './pages/Team';
 
 function App() {
   const ScrollToTop = () => {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/der-hof" element={<UnserHof />} />
+          <Route path="/team-lechleite" element={<Team />} />
         </Routes>
         <Footer></Footer>
       </Router>
