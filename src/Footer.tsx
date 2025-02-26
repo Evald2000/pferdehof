@@ -7,7 +7,7 @@ const Footer = () => {
 
 
 
-        <footer className="bg-gray-900 mt-14">
+        <footer className="bg-headerdark mt-14">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
@@ -17,39 +17,39 @@ const Footer = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">Kontakt</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                            <h2 className="mb-4 text-sm font-semibold text-gray-300">Kontakt</h2>
+                            <ul className="text-gray-50 font-medium">
                                 <li className="">
-                                    <p className="hover:underline font-bold">Islandpferde Lechleite</p>
+                                    <p className=" font-bold">Islandpferde Lechleite</p>
                                 </li>
                                 <li>
-                                    <p className="hover:underline">Schützenstraße 114</p>
+                                    <p className="">Schützenstraße 114</p>
                                 </li>
                                 <li>
-                                    <p className="hover:underline">86316 Friedberg</p>
+                                    <p className="">86316 Friedberg</p>
                                 </li>
                                 <li>
-                                    <p className="hover:underline">Deutschland</p>
+                                    <p className="">Deutschland</p>
                                 </li>
                                 <li>
-                                    <p className="hover:underline">T: +49 (0)821 603330</p>
+                                    <p className="">T: +49 (0)821 603330</p>
                                 </li>
                                 <li>
-                                    <p className="hover:underline">E: info@lechleite.de</p>
+                                    <p className="">E: info@lechleite.de</p>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <h2 className="mb-4 text-sm font-semibold text-white">Rechtliches</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                            <h2 className="mb-4 text-sm font-semibold text-gray-300">Rechtliches</h2>
+                            <ul className="text-gray-50 font-medium">
                                 <li className="">
                                     <a onClick={() => navigate('/allgemeine-geschaeftsbedingungen')}  className="hover:underline hover:cursor-pointer">Allgemeine Geschäftsbedingungen</a>
                                 </li>
                                 <li className="">
-                                    <a onClick={() => navigate('/impressum')} className="hover:underline">Impressum</a>
+                                    <a onClick={() => navigate('/impressum')} className="hover:underline hover:cursor-pointer">Impressum</a>
                                 </li>
                                 <li className="">
-                                    <a onClick={() => navigate('/datenschutz')} className="hover:underline">Datenschutz</a>
+                                    <a onClick={() => navigate('/datenschutz')} className="hover:underline hover:cursor-pointer">Datenschutz</a>
                                 </li>
 
                             </ul>

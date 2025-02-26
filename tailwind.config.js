@@ -30,6 +30,7 @@ module.exports = {
       colors: {
         background: '#ede9e5',
         header: '#5a4131',
+        headerdark: '#423024',
         primary: '#a36314',
         lightBrown: '#422714',
         special: '#9684A1',

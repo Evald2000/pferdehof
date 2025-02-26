@@ -4,7 +4,7 @@ const UeberUns = () => {
   return (
     <div className="mt-20 mx-4">
       <h1 className="font-bold text-2xl text-center text-lightBrown mb-4">
-        Über uns
+        Unser Hof
       </h1>
       <section className="grid sm:grid-cols-2 gap-4 lg:mx-14 mb-14 ">
         <img className="rounded-md shadow-md" src={hof}></img>
