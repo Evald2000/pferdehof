@@ -1,24 +1,30 @@
 {
   "files": {
-    "main.css": "/pferdehof/static/css/main.8cb17765.css",
-    "main.js": "/pferdehof/static/js/main.b50c754b.js",
+    "main.css": "/pferdehof/static/css/main.c1270c3a.css",
+    "main.js": "/pferdehof/static/js/main.1e23c004.js",
     "static/js/453.b7fa35a9.chunk.js": "/pferdehof/static/js/453.b7fa35a9.chunk.js",
     "static/media/hof_panoram.jpg": "/pferdehof/static/media/hof_panoram.d40ebcfe48695a9dd409.jpg",
     "static/media/pony.jpg": "/pferdehof/static/media/pony.63f286801ab4be332594.jpg",
     "static/media/pferd_liegt.jpg": "/pferdehof/static/media/pferd_liegt.f2dfa773318190babf24.jpg",
+    "static/media/team.jpg": "/pferdehof/static/media/team.25bf8d1d93b48a8bb9fa.jpg",
+    "static/media/johanna.jpg": "/pferdehof/static/media/johanna.0e5890979b1fd28885c8.jpg",
+    "static/media/veronika-frisch.jpg": "/pferdehof/static/media/veronika-frisch.508862b3a1a80e1270b5.jpg",
     "static/media/pferde_essen.jpg": "/pferdehof/static/media/pferde_essen.5d99b33f532cf2f2e338.jpg",
     "static/media/derHof.jpg": "/pferdehof/static/media/derHof.fc36eef69710c2f304ef.jpg",
     "static/media/logo.png": "/pferdehof/static/media/logo.3ad19432e97884750a30.png",
     "static/media/erwachsene.jpg": "/pferdehof/static/media/erwachsene.1b2d8b741acfe4ff52a4.jpg",
+    "static/media/stjarna.jpg": "/pferdehof/static/media/stjarna.e48d89a11f7f87f68582.jpg",
+    "static/media/christine.jpg": "/pferdehof/static/media/christine.6969410ea289f24644c2.jpg",
+    "static/media/sebastian.jpg": "/pferdehof/static/media/sebastian.ced4fc36624c45831987.jpg",
     "static/media/kinder.jpg": "/pferdehof/static/media/kinder.f8f25597f7f9f99caa5d.jpg",
     "index.html": "/pferdehof/index.html",
     "static/media/menu.svg": "/pferdehof/static/media/menu.317bc50c92894bf177b7fef280dcd505.svg",
-    "main.8cb17765.css.map": "/pferdehof/static/css/main.8cb17765.css.map",
-    "main.b50c754b.js.map": "/pferdehof/static/js/main.b50c754b.js.map",
+    "main.c1270c3a.css.map": "/pferdehof/static/css/main.c1270c3a.css.map",
+    "main.1e23c004.js.map": "/pferdehof/static/js/main.1e23c004.js.map",
     "453.b7fa35a9.chunk.js.map": "/pferdehof/static/js/453.b7fa35a9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8cb17765.css",
-    "static/js/main.b50c754b.js"
+    "static/css/main.c1270c3a.css",
+    "static/js/main.1e23c004.js"
   ]
 }
