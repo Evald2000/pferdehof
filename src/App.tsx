@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Agb from './pages/Agb';
 import { useEffect, useState } from 'react';
-import Termine from './pages/Termine';
+import Termine from './pages/Termine.js';
 import PriceList from './pages/PriceList';
 import Header from './Header';
 import Footer from './Footer';
@@ -12,6 +12,7 @@ import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import UnserHof from './pages/unserHof';
 import Team from './pages/Team';
+import Pferde from './pages/Pferde';
 
 function App() {
   const ScrollToTop = () => {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/der-hof" element={<UnserHof />} />
           <Route path="/team-lechleite" element={<Team />} />
+          <Route path="/unsere-pferde" element={<Pferde />} />
         </Routes>
         <Footer></Footer>
       </Router>

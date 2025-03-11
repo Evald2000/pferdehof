@@ -1,8 +1,34 @@
-import React from 'react';
-import ListEvent from "../components/LIstEvent";
+import React, { useEffect, useState } from 'react';
 import Header from "../Header";
+import api from '../api/api';
+import axios from 'axios';
+const Termine =  () => {
 
-const Termine = () => {
+
+  const [termin, setTermin] = useState(null);
+  const [error, setError] = useState('');
+
+
+  useEffect(() => {
+    const fetchTermin = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/termin/2/');
+        setTermin(response.data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchTermin();
+  }, []);
+
+
+
+const test = async () => { 
+  await axios.get('http://127.0.0.1:8000/termin/2')}
+
+
+
+
   const boxesData = [
     {
       title: "Reitkurse",
@@ -103,6 +129,9 @@ const Termine = () => {
       // ... weitere Boxen möglich
     ];
 
+   
+  if (error) return <div>Fehler: {error}</div>;
+  if (!termin) return <div>Lade Termin...</div>;
   return (
     // flex + items-stretch = beide Spalten (Main + Sidebar) sind gleich hoch
     <div className=' mt-24 mr-7'>
@@ -113,7 +142,12 @@ const Termine = () => {
           STANDARTS
         </div>
       </aside>
-
+      <div>
+      <h2>Termine</h2>
+      <h1>{termin.title}</h1>
+      <div>
+      </div>
+    </div>
       {/* Hauptbereich mit den Boxen */}
       <main className="flex-1 p-6 order-2 bg-white">
         {/* Grid: 1 Spalte (Mobil), 2 Spalten (Tablet), 3 Spalten (Desktop) */}
@@ -123,6 +157,7 @@ const Termine = () => {
               key={idx}
               className="bg-background p-4 shadow-sm rounded border flex flex-col"
             >
+              
               <h2 className="text-lg font-semibold mb-2 text-center">{box.title}</h2>
               <ul className="text-sm space-y-1 text-center">
                 {box.items.map((item, iidx) => (
