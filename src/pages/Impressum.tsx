@@ -26,11 +26,6 @@ const Impressum = () => {
               <h1 className=" ">Rai Ba Kissing / Mering; BIC: GENODEF 1MR I</h1>
               <h1 className=" ">IBAN: DE 63 720 691 55 000 18 39 799</h1>
             </section>
-            <section className="mb-4">
-              <h1 className="text-xl font-bold ">Pferdepension:</h1>
-              <h1 className=" ">Rai Ba Kissing / Mering; BIC: GENODEF 1MR I</h1>
-              <h1 className=" ">IBAN: DE 63 720 691 55 000 18 39 799</h1>
-            </section>
           </section>
 
           <section className="mb-6">

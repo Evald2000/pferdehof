@@ -13,6 +13,7 @@ import Datenschutz from './pages/Datenschutz';
 import UnserHof from './pages/unserHof';
 import Team from './pages/Team';
 import Pferde from './pages/Pferde';
+import TermineNeu from './pages/TermineNeu';
 
 function App() {
   const ScrollToTop = () => {
@@ -42,7 +43,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/programm" element={<Termine />} />
+          <Route path="/programm" element={<TermineNeu />} />
           <Route path="/price" element={<PriceList />} />
           <Route path="/allgemeine-geschaeftsbedingungen" element={<Agb />} />
           <Route path="/impressum" element={<Impressum />} />
