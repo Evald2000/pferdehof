@@ -1,5 +1,41 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+  useSortable,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
+// Komponente für ein sortierbares Element
+const SortableItem = ({ id, children, data }) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id, data });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      {children}
+    </div>
+  );
+};
 
 const TermineAdmin = () => {
   const [categories, setCategories] = useState([]);
@@ -88,17 +124,32 @@ const TermineAdmin = () => {
           sequence: date.sequence || index + 1,
         })),
       };
-  
+
       console.log("Event-Daten vor dem Absenden:", eventData);
-  
+
       const response = await axios.post("http://localhost:8000/api/events/", eventData);
-  
-      // Weiterer Code...
+
+      // Füge das neu erstellte Event der passenden Kategorie hinzu
+      setCategories((prevCategories) =>
+        prevCategories.map((category) =>
+          category.id === parseInt(newEvent.category, 10)
+            ? { ...category, events: [...(category.events || []), response.data] }
+            : category
+        )
+      );
+
+      // Formular zurücksetzen
+      setNewEvent({
+        title: "",
+        description: "",
+        category: "",
+        event_type: "SINGLE",
+        dates: [{ start_date: "", end_date: "" }],
+      });
     } catch (error) {
       console.error("Fehler beim Erstellen des Events:", error.response?.data);
     }
   };
-  
 
   // Datumsfelder aktualisieren
   const handleDateChange = (index, field, value) => {
@@ -107,7 +158,7 @@ const TermineAdmin = () => {
     setNewEvent((prev) => ({ ...prev, dates: updatedDates }));
   };
 
-  // Neue Datumszeile hinzufügen
+  // Neue Datumszeile hinzufügen – hier wird auch eine eindeutige sequence gesetzt
   const addDateField = () => {
     setNewEvent((prev) => ({
       ...prev,
@@ -116,6 +167,47 @@ const TermineAdmin = () => {
         { start_date: "", end_date: "", sequence: prev.dates.length + 1 },
       ],
     }));
+  };
+
+  // dnd-kit: Sensoren definieren
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
+  );
+
+  // Handler für Drag & Drop (Neuordnung der Events innerhalb einer Kategorie)
+  const handleDragEnd = (event, categoryId) => {
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
+
+    const category = categories.find((cat) => cat.id === categoryId);
+    if (!category || !category.events) return;
+
+    const oldIndex = category.events.findIndex((e) => e.id === active.id);
+    const newIndex = category.events.findIndex((e) => e.id === over.id);
+
+    const newEvents = arrayMove(category.events, oldIndex, newIndex).map((evt, index) => ({
+      ...evt,
+      sort_order: index + 1,
+    }));
+
+    // Update den State
+    setCategories((prevCategories) =>
+      prevCategories.map((cat) =>
+        cat.id === categoryId ? { ...cat, events: newEvents } : cat
+      )
+    );
+
+    // Erstelle ein Array mit den neuen Event-IDs in Reihenfolge
+    const eventOrder = newEvents.map((evt) => evt.id);
+    // Sende die neue Reihenfolge an das Backend (PATCH-Request)
+    axios
+      .patch(`http://localhost:8000/api/events/reorder/${categoryId}/`, { event_order: eventOrder })
+      .then((response) => {
+        console.log("Reihenfolge erfolgreich aktualisiert:", response.data);
+      })
+      .catch((error) => {
+        console.error("Fehler beim Aktualisieren der Reihenfolge:", error.response?.data);
+      });
   };
 
   return (
@@ -162,17 +254,29 @@ const TermineAdmin = () => {
         />
       )}
 
-      {/* Anzeige der Daten */}
-      <div className="mt-12 space-y-12">
-        {categories.map((category) => (
-          <CategorySection
-            key={category.id}
-            category={category}
-            onDeleteEvent={handleDeleteEvent}
-            onDeleteCategory={() => deleteCategory(category.id)}
-          />
-        ))}
-      </div>
+      {/* Anzeige der Kategorien und Events mit Drag & Drop */}
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={(e) => {
+          // Wir gehen davon aus, dass jedes Draggable ein data-Feld "categoryId" hat
+          const categoryId = parseInt(e.active.data.current?.categoryId, 10);
+          if (categoryId) {
+            handleDragEnd(e, categoryId);
+          }
+        }}
+      >
+        <div className="mt-12 space-y-12">
+          {categories.map((category) => (
+            <CategorySection
+              key={category.id}
+              category={category}
+              onDeleteEvent={handleDeleteEvent}
+              onDeleteCategory={() => deleteCategory(category.id)}
+            />
+          ))}
+        </div>
+      </DndContext>
     </div>
   );
 };
@@ -182,9 +286,7 @@ const CategoryForm = ({ newCategory, setNewCategory, onSubmit }) => (
     <h3 className="text-2xl font-bold mb-4 text-gray-800">Neue Kategorie</h3>
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Name
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
         <input
           type="text"
           value={newCategory.name}
@@ -196,9 +298,7 @@ const CategoryForm = ({ newCategory, setNewCategory, onSubmit }) => (
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Sortierreihenfolge
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Sortierreihenfolge</label>
         <input
           type="number"
           min="1"
@@ -232,9 +332,7 @@ const EventForm = ({
     <h3 className="text-2xl font-bold mb-4 text-gray-800">Neuer Termin</h3>
     <div className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Titel
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Titel</label>
         <input
           type="text"
           name="title"
@@ -246,11 +344,8 @@ const EventForm = ({
           required
         />
       </div>
-
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Kategorie
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Kategorie</label>
         <select
           name="category"
           value={newEvent.category}
@@ -268,11 +363,8 @@ const EventForm = ({
           ))}
         </select>
       </div>
-
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Terminart
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Terminart</label>
         <select
           name="event_type"
           value={newEvent.event_type}
@@ -286,36 +378,26 @@ const EventForm = ({
           <option value="RANGE">Zeitraum</option>
         </select>
       </div>
-
       {newEvent.dates.map((date, index) => (
         <div key={index} className="space-y-4 bg-gray-50 p-4 rounded-md">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Startdatum
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Startdatum</label>
               <input
                 type="date"
                 value={date.start_date}
-                onChange={(e) =>
-                  handleDateChange(index, "start_date", e.target.value)
-                }
+                onChange={(e) => handleDateChange(index, "start_date", e.target.value)}
                 className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
-           
-            {(newEvent.event_type === "RANGE") && (
+            {newEvent.event_type === "RANGE" && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Enddatum
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Enddatum</label>
                 <input
                   type="date"
                   value={date.end_date}
-                  onChange={(e) =>
-                    handleDateChange(index, "end_date", e.target.value)
-                  }
+                  onChange={(e) => handleDateChange(index, "end_date", e.target.value)}
                   className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
                   required={newEvent.event_type === "RANGE"}
                 />
@@ -324,7 +406,6 @@ const EventForm = ({
           </div>
         </div>
       ))}
-
       {newEvent.event_type === "MULTI" && (
         <button
           type="button"
@@ -334,7 +415,6 @@ const EventForm = ({
           Weitere Terminzeit hinzufügen
         </button>
       )}
-
       <button
         type="submit"
         className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700"
@@ -347,25 +427,22 @@ const EventForm = ({
 
 const CategorySection = ({ category, onDeleteEvent, onDeleteCategory }) => (
   <section className="bg-white p-6 rounded-lg shadow-md">
-    <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">
-      {category.name}
-    </h2>
-    <div className="space-y-4">
-      {category.events?.map((event) => (
-        <EventItem key={event.id} event={event} onDelete={() => onDeleteEvent(event.id)} />
+    <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">{category.name}</h2>
+    <SortableContext items={category.events?.map((e) => e.id) || []} strategy={verticalListSortingStrategy}>
+      {category.events?.map((event, index) => (
+        <SortableItem key={event.id} id={event.id} data={{ categoryId: category.id }}>
+          <EventItem event={event} onDelete={() => onDeleteEvent(event.id)} />
+        </SortableItem>
       ))}
-    </div>
-    <button
-      onClick={onDeleteCategory}
-      className="mt-2 text-red-600 hover:text-red-800 text-sm"
-    >
+    </SortableContext>
+    <button onClick={onDeleteCategory} className="mt-2 text-red-600 hover:text-red-800 text-sm">
       Löschen
     </button>
   </section>
 );
 
 const EventItem = ({ event, onDelete }) => (
-  <div className="bg-gray-50 p-4 rounded-md relative group">
+  <div className="bg-gray-50 mb-4 p-4 rounded-md relative group">
     <h3 className="font-semibold text-lg text-gray-800 mb-2">{event.title}</h3>
     <div className="flex flex-wrap gap-2">
       {event.dates?.map((date, index) => (
@@ -389,4 +466,3 @@ const EventItem = ({ event, onDelete }) => (
 );
 
 export default TermineAdmin;
-
