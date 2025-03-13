@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { on } from "events";
 
 const TermineAdmin = () => {
   const [categories, setCategories] = useState([]);
@@ -37,26 +36,21 @@ const TermineAdmin = () => {
   const handleCreateCategory = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/categories/",
-        {
-          name: newCategory.name,
-          sort_order: parseInt(newCategory.sort_order),
-        }
-      );
-
+      const response = await axios.post("http://localhost:8000/api/categories/", {
+        name: newCategory.name,
+        sort_order: parseInt(newCategory.sort_order, 10),
+      });
       setCategories((prev) => [...prev, response.data]);
       setNewCategory({ name: "", sort_order: "" });
     } catch (error) {
-      console.error("Fehler beim Erstellen:", error.response?.data);
+      console.error("Fehler beim Erstellen der Kategorie:", error.response?.data);
     }
   };
 
-  // Event löschen mit optimiertem State-Update
+  // Event löschen
   const handleDeleteEvent = async (eventId) => {
     try {
       await axios.delete(`http://localhost:8000/api/events/${eventId}/`);
-
       setCategories((prevCategories) =>
         prevCategories.map((category) => ({
           ...category,
@@ -64,11 +58,12 @@ const TermineAdmin = () => {
         }))
       );
     } catch (error) {
-      console.error("Fehler beim Löschen:", error.response?.data);
+      console.error("Fehler beim Löschen des Events:", error.response?.data);
       alert("Löschen fehlgeschlagen!");
     }
   };
 
+  // Kategorie löschen
   const deleteCategory = async (categoryId) => {
     try {
       await axios.delete(`http://localhost:8000/api/categories/${categoryId}/`);
@@ -76,7 +71,7 @@ const TermineAdmin = () => {
         prevCategories.filter((category) => category.id !== categoryId)
       );
     } catch (error) {
-      console.error("Fehler beim Löschen:", error.response?.data);
+      console.error("Fehler beim Löschen der Kategorie:", error.response?.data);
       alert("Löschen fehlgeschlagen!");
     }
   };
@@ -87,36 +82,23 @@ const TermineAdmin = () => {
     try {
       const eventData = {
         ...newEvent,
-        dates: newEvent.dates.map((date) => ({
+        dates: newEvent.dates.map((date, index) => ({
           start_date: date.start_date,
-          end_date: newEvent.event_type === "RANGE" ? date.end_date : null,
+          end_date: date.end_date || null, // Lässt end_date leer, falls nicht gesetzt
+          sequence: date.sequence || index + 1,
         })),
       };
-
-      const response = await axios.post(
-        "http://localhost:8000/api/events/",
-        eventData
-      );
-
-      setCategories((prevCategories) =>
-        prevCategories.map((category) =>
-          category.id === parseInt(newEvent.category)
-            ? { ...category, events: [...category.events, response.data] }
-            : category
-        )
-      );
-
-      setNewEvent({
-        title: "",
-        description: "",
-        category: "",
-        event_type: "SINGLE",
-        dates: [{ start_date: "", end_date: "" }],
-      });
+  
+      console.log("Event-Daten vor dem Absenden:", eventData);
+  
+      const response = await axios.post("http://localhost:8000/api/events/", eventData);
+  
+      // Weiterer Code...
     } catch (error) {
-      console.error("Fehler beim Erstellen:", error.response?.data);
+      console.error("Fehler beim Erstellen des Events:", error.response?.data);
     }
   };
+  
 
   // Datumsfelder aktualisieren
   const handleDateChange = (index, field, value) => {
@@ -129,7 +111,10 @@ const TermineAdmin = () => {
   const addDateField = () => {
     setNewEvent((prev) => ({
       ...prev,
-      dates: [...prev.dates, { start_date: "", end_date: "" }],
+      dates: [
+        ...prev.dates,
+        { start_date: "", end_date: "", sequence: prev.dates.length + 1 },
+      ],
     }));
   };
 
@@ -184,7 +169,7 @@ const TermineAdmin = () => {
             key={category.id}
             category={category}
             onDeleteEvent={handleDeleteEvent}
-            onDeleteCategory={ () => deleteCategory(category.id)}
+            onDeleteCategory={() => deleteCategory(category.id)}
           />
         ))}
       </div>
@@ -192,7 +177,6 @@ const TermineAdmin = () => {
   );
 };
 
-// Unterkomponenten
 const CategoryForm = ({ newCategory, setNewCategory, onSubmit }) => (
   <form onSubmit={onSubmit} className="bg-white p-6 rounded-lg shadow-md mb-8">
     <h3 className="text-2xl font-bold mb-4 text-gray-800">Neue Kategorie</h3>
@@ -320,8 +304,8 @@ const EventForm = ({
                 required
               />
             </div>
-
-            {newEvent.event_type === "RANGE" && (
+           
+            {(newEvent.event_type === "RANGE") && (
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Enddatum
@@ -333,7 +317,7 @@ const EventForm = ({
                     handleDateChange(index, "end_date", e.target.value)
                   }
                   className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                  required
+                  required={newEvent.event_type === "RANGE"}
                 />
               </div>
             )}
@@ -368,16 +352,12 @@ const CategorySection = ({ category, onDeleteEvent, onDeleteCategory }) => (
     </h2>
     <div className="space-y-4">
       {category.events?.map((event) => (
-        <EventItem
-          key={event.id}
-          event={event}
-          onDelete={() => onDeleteEvent(event.id)}
-        />
+        <EventItem key={event.id} event={event} onDelete={() => onDeleteEvent(event.id)} />
       ))}
     </div>
     <button
       onClick={onDeleteCategory}
-      className="mt-2 text-red-600 hover:text-red-800 text-sm top-2 right-2"
+      className="mt-2 text-red-600 hover:text-red-800 text-sm"
     >
       Löschen
     </button>
@@ -389,10 +369,7 @@ const EventItem = ({ event, onDelete }) => (
     <h3 className="font-semibold text-lg text-gray-800 mb-2">{event.title}</h3>
     <div className="flex flex-wrap gap-2">
       {event.dates?.map((date, index) => (
-        <div
-          key={index}
-          className="text-sm text-gray-600 bg-white px-2 py-1 rounded"
-        >
+        <div key={index} className="text-sm text-gray-600 bg-white px-2 py-1 rounded">
           {new Date(date.start_date).toLocaleDateString("de-DE")}
           {date.end_date && (
             <span className="ml-1">
@@ -412,3 +389,4 @@ const EventItem = ({ event, onDelete }) => (
 );
 
 export default TermineAdmin;
+
