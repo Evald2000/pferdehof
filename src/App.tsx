@@ -16,6 +16,7 @@ import Pferde from './pages/Pferde';
 import TermineNeu from './pages/TermineNeu';
 import TermineManager from './pages/TermineAdmin';
 import TermineAdmin from './pages/TermineAdmin';
+import Anmeldung from './pages/Anmeldung';
 
 function App() {
   const ScrollToTop = () => {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/team-lechleite" element={<Team />} />
           <Route path="/unsere-pferde" element={<Pferde />} />
           <Route path="/admin" element={<TermineAdmin />} />
+          <Route path="/anmeldung" element={<Anmeldung />} />
         </Routes>
         <Footer></Footer>
       </Router>

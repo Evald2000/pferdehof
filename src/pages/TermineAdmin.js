@@ -345,6 +345,18 @@ const EventForm = ({
         />
       </div>
       <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Beschreibung</label>
+        <input
+          type="text"
+          name="title"
+          value={newEvent.description}
+          onChange={(e) =>
+            setNewEvent((prev) => ({ ...prev, description: e.target.value }))
+          }
+          className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+      <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Kategorie</label>
         <select
           name="category"
@@ -444,6 +456,7 @@ const CategorySection = ({ category, onDeleteEvent, onDeleteCategory }) => (
 const EventItem = ({ event, onDelete }) => (
   <div className="bg-gray-50 mb-4 p-4 rounded-md relative group">
     <h3 className="font-semibold text-lg text-gray-800 mb-2">{event.title}</h3>
+    <h3 className="font-semibold text-base text-gray-700 mb-2">{event.description}</h3>
     <div className="flex flex-wrap gap-2">
       {event.dates?.map((date, index) => (
         <div key={index} className="text-sm text-gray-600 bg-white px-2 py-1 rounded">
