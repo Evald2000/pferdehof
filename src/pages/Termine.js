@@ -12,7 +12,7 @@ const Termine =  () => {
   useEffect(() => {
     const fetchTermin = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/termin/2/');
+        const response = await axios.get('https://pferdehof-back-2.onrender.com/termin/2/');
         setTermin(response.data);
       } catch (err) {
         setError(err.message);
@@ -24,7 +24,7 @@ const Termine =  () => {
 
 
 const test = async () => { 
-  await axios.get('http://127.0.0.1:8000/termin/2')}
+  await axios.get('https://pferdehof-back-2.onrender.com/termin/2')}
 
 
 
@@ -134,7 +134,7 @@ const test = async () => {
   if (!termin) return <div>Lade Termin...</div>;
   return (
     // flex + items-stretch = beide Spalten (Main + Sidebar) sind gleich hoch
-    <div className=' mt-24 mr-7'>
+    <div className='mt-14 mr-7'>
     <div className="flex items-stretc">
       {/* Linke Sidebar */}
       <aside className="order-1 w-20 bg-background rounded-r-lg border-r flex items-center justify-center">

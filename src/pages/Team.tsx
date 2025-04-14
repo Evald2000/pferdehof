@@ -13,7 +13,7 @@ const Team = () => {
           <h1 className="font-bold text-center text-2xl mb-2">Unser Team</h1>
           <div className="grid grid-cols-2">
             <img
-              className="h-auto col-span-2 rounded-md shadow-md mx-auto"
+              className="w-full md:w-4/5 h-auto col-span-2 rounded-md shadow-md mx-auto"
               src={team}
             ></img>
             <p className=" col-span-2 my-2 hyphens-auto md:mx-14">

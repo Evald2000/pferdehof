@@ -1,13 +1,13 @@
-import { HashRouter as Router, Routes, Route, useLocation, UNSAFE_getPatchRoutesOnNavigationFunction } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, UNSAFE_getPatchRoutesOnNavigationFunction } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Agb from './pages/Agb';
 import { useEffect, useState } from 'react';
 import Termine from './pages/Termine.js';
 import PriceList from './pages/PriceList';
-import Header from './Header';
+import Header from './Header.js';
 import Footer from './Footer';
-import HeaderMobile from './HeaderMobile';
+import HeaderMobile from './HeaderMobile.js';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import UnserHof from './pages/unserHof';

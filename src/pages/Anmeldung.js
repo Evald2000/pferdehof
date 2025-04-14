@@ -25,7 +25,7 @@ const AnmeldungsFormular = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/events/");
+        const response = await axios.get("https://pferdehof-back-2.onrender.com/api/events/");
         setKurse(response.data);
       } catch (error) {
         console.error("Fehler beim Laden:", error);
@@ -39,7 +39,7 @@ const AnmeldungsFormular = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:8000/api/send-email/', {
+      const response = await fetch('https://pferdehof-back-2.onrender.com/api/send-email/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,8 +95,8 @@ const AnmeldungsFormular = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="mt-24 max-w-2xl mx-4 p-6 rounded-md bg-background shadow-md">
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="mt-24 md:w-3/6 mx-4 p-6 rounded-md bg-background shadow-md">
         <h1 className="text-3xl font-bold text-gray-800 mb-8">Anmeldung</h1>
 
         {error && <div className="text-red-500 mb-4">{error}</div>}

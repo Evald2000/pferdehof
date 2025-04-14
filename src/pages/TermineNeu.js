@@ -11,7 +11,7 @@ const TermineNeu = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/categories/?include_events=true');
+      const response = await axios.get('https://pferdehof-back-2.onrender.com/api/categories/?include_events=true');
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -19,7 +19,8 @@ const TermineNeu = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mt-24">
+    <div className="col-span-2">
+    <div className="max-w-4xl mx-auto p-6 mt-14">
       <h1 className="text-3xl font-bold mb-8 text-gray-800 text-center">
         Programmübersicht 2025
       </h1>
@@ -32,6 +33,7 @@ const TermineNeu = () => {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 };

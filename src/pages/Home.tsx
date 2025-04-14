@@ -1,5 +1,5 @@
 import Footer from "../Footer";
-import Header from "../Header";
+
 import hof from "../assets/derHof.jpg";
 import pony from "../assets/pony.jpg";
 import hof_panoram from "../assets/hof_panoram.jpg";

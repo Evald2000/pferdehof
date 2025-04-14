@@ -60,7 +60,7 @@ const TermineAdmin = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/categories/?include_events=true"
+        "https://pferdehof-back-2.onrender.com/api/categories/?include_events=true"
       );
       setCategories(response.data);
     } catch (error) {
@@ -72,7 +72,7 @@ const TermineAdmin = () => {
   const handleCreateCategory = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/categories/", {
+      const response = await axios.post("https://pferdehof-back-2.onrender.com/api/categories/", {
         name: newCategory.name,
         sort_order: parseInt(newCategory.sort_order, 10),
       });
@@ -86,7 +86,7 @@ const TermineAdmin = () => {
   // Event löschen
   const handleDeleteEvent = async (eventId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/events/${eventId}/`);
+      await axios.delete(`https://pferdehof-back-2.onrender.com/api/events/${eventId}/`);
       setCategories((prevCategories) =>
         prevCategories.map((category) => ({
           ...category,
@@ -102,7 +102,7 @@ const TermineAdmin = () => {
   // Kategorie löschen
   const deleteCategory = async (categoryId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/categories/${categoryId}/`);
+      await axios.delete(`https://pferdehof-back-2.onrender.com/api/categories/${categoryId}/`);
       setCategories((prevCategories) =>
         prevCategories.filter((category) => category.id !== categoryId)
       );
@@ -127,7 +127,7 @@ const TermineAdmin = () => {
 
       console.log("Event-Daten vor dem Absenden:", eventData);
 
-      const response = await axios.post("http://localhost:8000/api/events/", eventData);
+      const response = await axios.post("https://pferdehof-back-2.onrender.com/api/events/", eventData);
 
       // Füge das neu erstellte Event der passenden Kategorie hinzu
       setCategories((prevCategories) =>
@@ -201,7 +201,7 @@ const TermineAdmin = () => {
     const eventOrder = newEvents.map((evt) => evt.id);
     // Sende die neue Reihenfolge an das Backend (PATCH-Request)
     axios
-      .patch(`http://localhost:8000/api/events/reorder/${categoryId}/`, { event_order: eventOrder })
+      .patch(`https://pferdehof-back-2.onrender.com/api/events/reorder/${categoryId}/`, { event_order: eventOrder })
       .then((response) => {
         console.log("Reihenfolge erfolgreich aktualisiert:", response.data);
       })
