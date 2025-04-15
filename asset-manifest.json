@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pferdehof/static/css/main.9ee011b0.css",
-    "main.js": "/pferdehof/static/js/main.d89e732b.js",
+    "main.css": "/pferdehof/static/css/main.10167513.css",
+    "main.js": "/pferdehof/static/js/main.0f580beb.js",
     "static/js/453.b7fa35a9.chunk.js": "/pferdehof/static/js/453.b7fa35a9.chunk.js",
     "static/media/hof_panoram.jpg": "/pferdehof/static/media/hof_panoram.d40ebcfe48695a9dd409.jpg",
     "static/media/pony.jpg": "/pferdehof/static/media/pony.63f286801ab4be332594.jpg",
@@ -19,12 +19,12 @@
     "static/media/kinder.jpg": "/pferdehof/static/media/kinder.f8f25597f7f9f99caa5d.jpg",
     "index.html": "/pferdehof/index.html",
     "static/media/menu.svg": "/pferdehof/static/media/menu.317bc50c92894bf177b7fef280dcd505.svg",
-    "main.9ee011b0.css.map": "/pferdehof/static/css/main.9ee011b0.css.map",
-    "main.d89e732b.js.map": "/pferdehof/static/js/main.d89e732b.js.map",
+    "main.10167513.css.map": "/pferdehof/static/css/main.10167513.css.map",
+    "main.0f580beb.js.map": "/pferdehof/static/js/main.0f580beb.js.map",
     "453.b7fa35a9.chunk.js.map": "/pferdehof/static/js/453.b7fa35a9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ee011b0.css",
-    "static/js/main.d89e732b.js"
+    "static/css/main.10167513.css",
+    "static/js/main.0f580beb.js"
   ]
 }
